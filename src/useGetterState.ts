@@ -7,7 +7,7 @@ const isFunction = <T>(setter: T | Function): setter is Function => {
   return typeof setter === 'function';
 };
 
-const getDefaultValue = <T>(defaultValue?: DefaultValueType<T>) => {
+const getDefaultValue = <T>(defaultValue?: DefaultValueType<T>): T => {
   if (isFunction(defaultValue)) return defaultValue();
 
   return defaultValue;
@@ -19,7 +19,7 @@ export const useGetterState = <T>(defaultValue?: DefaultValueType<T>) => {
   const container = useRef({
     value: getDefaultValue(defaultValue),
     getValue: () => container.current.value,
-    onChange: (setter: SetStateAction<T | undefined>) => {
+    onChange: (setter: SetStateAction<T>) => {
       const newValue = isFunction(setter)
         ? setter(container.current.value)
         : setter;
