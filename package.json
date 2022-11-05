@@ -1,7 +1,7 @@
 {
-  "name": "react-permissions-dynamic",
-  "version": "1.0.9",
-  "description": "This is a package with react-permissions",
+  "name": "use-getter-state",
+  "version": "1.0.0",
+  "description": "This is a package with use-getter-state. Hook that improves default useState",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "style": "./src/style/index.css",
@@ -15,22 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Inshadowin/react-permissions.git"
+    "url": "git+https://github.com/Inshadowin/use-getter-state.git"
   },
   "author": "Antony Karachansky",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Inshadowin/react-permissions/issues"
+    "url": "https://github.com/Inshadowin/use-getter-state/issues"
   },
-  "homepage": "https://github.com/Inshadowin/react-permissions#readme",
+  "homepage": "https://github.com/Inshadowin/use-getter-state#readme",
   "keywords": [
     "react",
-    "permissions",
-    "app-permissions",
-    "react-permissions",
-    "permissions resolver",
-    "react permissions dynamic",
-    "react-permissions-dynamic"
+    "useState",
+    "useState-withGetter"
   ],
   "jest": {
     "roots": [
@@ -80,10 +76,7 @@
     ],
     "resetMocks": true
   },
-  "dependencies": {
-    "lodash.isequal": "^4.5.0",
-    "lodash.xor": "^4.5.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^18.2.0 || ^17.0.0 || ^16.0.0",
     "react-dom": "^18.2.0 || ^17.0.0 || ^16.0.0"
