@@ -4,7 +4,7 @@ import { useGetterState } from '../src';
 
 type InputProps = {
   value: number;
-  hasError: number;
+  hasError: boolean;
   onValidation: (isValid: boolean) => void;
 };
 
@@ -30,7 +30,9 @@ const Input: React.FC<InputProps> = ({ value, hasError, onValidation }) => {
 };
 
 const MultipleInputs = () => {
-  const [getFormErrors, setFormErrors] = useGetterState<any>({});
+  const [getFormErrors, setFormErrors] = useGetterState<{
+    [x in string]: boolean;
+  }>({});
   const formErrors = getFormErrors();
 
   return (
