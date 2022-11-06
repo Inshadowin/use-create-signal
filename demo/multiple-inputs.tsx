@@ -31,6 +31,7 @@ const Input: React.FC<InputProps> = ({ value, hasError, onValidation }) => {
 
 const MultipleInputs = () => {
   const [getFormErrors, setFormErrors] = useGetterState<any>({});
+  const formErrors = getFormErrors();
 
   return (
     <div>
@@ -38,35 +39,35 @@ const MultipleInputs = () => {
       <br />
       <Input
         value={190}
-        hasError={getFormErrors().first}
+        hasError={formErrors.first}
         onValidation={isValid =>
           setFormErrors({ ...getFormErrors(), first: isValid })
         }
       />
       <Input
         value={310}
-        hasError={getFormErrors().second}
+        hasError={formErrors.second}
         onValidation={isValid =>
           setFormErrors({ ...getFormErrors(), second: isValid })
         }
       />
       <Input
         value={90}
-        hasError={getFormErrors().third}
+        hasError={formErrors.third}
         onValidation={isValid =>
           setFormErrors({ ...getFormErrors(), third: isValid })
         }
       />
       <Input
         value={20}
-        hasError={getFormErrors().fourth}
+        hasError={formErrors.fourth}
         onValidation={isValid =>
           setFormErrors({ ...getFormErrors(), fourth: isValid })
         }
       />
       <Input
         value={290}
-        hasError={getFormErrors().fifth}
+        hasError={formErrors.fifth}
         onValidation={isValid =>
           setFormErrors({ ...getFormErrors(), fifth: isValid })
         }
