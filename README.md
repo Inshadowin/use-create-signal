@@ -12,9 +12,27 @@ Just like you use useState
 
 But value is a getter function
 
+```tsx
+type DefaultValueType<T> = T | (() => T);
+
+type UseGetterStateType<T> = (
+  defaultValue?: DefaultValueType<T>
+) => [() => T, (setter: SetStateAction<T>) => T, T];
+```
+
 ```jsx
 const Component = () => {
   const [getter, setter] = useGetterState('');
+
+  return <input value={getter()} onChange={e => setter(e.target.value)} />;
+};
+```
+
+Or if you also need value, it's gonna be here
+
+```jsx
+const Component = () => {
+  const [getter, setter, value] = useGetterState('');
 
   return <input value={getter()} onChange={e => setter(e.target.value)} />;
 };
@@ -30,6 +48,8 @@ const Component = () => {
 ## Downsides
 
 - memo-components: getter is always the same function. so if you pass getter-function directly - also pass it's result
+
+## Examples
 
 ```jsx
 const Component = () => {

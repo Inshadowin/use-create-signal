@@ -25,5 +25,9 @@ export const useGetterState = <T>(defaultValue?: DefaultValueType<T>) => {
     },
   });
 
-  return [container.current.getValue, container.current.onChange] as const;
+  return [
+    container.current.getValue,
+    container.current.onChange,
+    value,
+  ] as const;
 };
