@@ -18,8 +18,8 @@ export const useGetterState = <T>(defaultValue?: DefaultValueType<T>) => {
         ? setter(container.current.value)
         : setter;
 
-      setValue(newValue);
       container.current.value = newValue;
+      setValue(newValue);
 
       return newValue;
     },
