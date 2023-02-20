@@ -7,7 +7,7 @@ const isFunction = <T>(setter: T | Function): setter is Function => {
   return typeof setter === 'function';
 };
 
-export const useGetterState = <T>(defaultValue?: DefaultValueType<T>) => {
+export const useCreateSignal = <T>(defaultValue?: DefaultValueType<T>) => {
   const [value, setValue] = useState<T>(defaultValue);
 
   const container = useRef({

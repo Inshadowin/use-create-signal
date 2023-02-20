@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { useGetterState } from '../src';
+import { useCreateSignal } from '../src';
 
 type InputProps = {
   value: number;
@@ -30,7 +30,7 @@ const Input: React.FC<InputProps> = ({ value, hasError, onValidation }) => {
 };
 
 const MultipleInputs = () => {
-  const [getFormErrors, setFormErrors] = useGetterState<{
+  const [getFormErrors, setFormErrors] = useCreateSignal<{
     [x in string]: boolean;
   }>({});
   const formErrors = getFormErrors();

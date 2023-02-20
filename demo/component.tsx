@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect } from 'react';
 
-import { useGetterState } from '../src';
+import { useCreateSignal } from '../src';
 
 const Component = () => {
-  const [getter, setter] = useGetterState<number>(() => 1); // or just useGetterState(1). it's the same as useState
+  const [getter, setter] = useCreateSignal<number>(() => 1); // or just useCreateSignal(1). it's the same as useState
 
   const handleIncrement = useCallback(() => {
     const newValue = setter(getter() + 1);

@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect } from 'react';
 
-import { useGetterState } from '../src';
+import { useCreateSignal } from '../src';
 
 const Parent = () => {
-  const [getState, setState] = useGetterState<number>(0);
+  const [getState, setState] = useCreateSignal<number>(0);
 
   const handleChange = useCallback((newValue: number) => {
     console.log(

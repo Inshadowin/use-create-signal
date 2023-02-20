@@ -1,1 +1,1 @@
-export { useGetterState } from './useGetterState';
+export { useCreateSignal } from './useCreateSignal';

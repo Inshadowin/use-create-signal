@@ -1,7 +1,7 @@
 {
-  "name": "use-getter-state",
-  "version": "1.0.4",
-  "description": "This is a package with use-getter-state. Hook that improves default useState",
+  "name": "use-create-signal",
+  "version": "1.0.0",
+  "description": "This is a package with use-create-signal. Hook that improves default useState to make it into Signal apprach",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "style": "./src/style/index.css",
@@ -25,7 +25,11 @@
   "homepage": "https://github.com/Inshadowin/use-getter-state#readme",
   "keywords": [
     "react",
+    "react-signal",
     "useState",
+    "useSignal",
+    "use-create-signal",
+    "use-getter-state",
     "useState-withGetter"
   ],
   "jest": {

@@ -1,4 +1,6 @@
-# use-getter-state
+# use-create-signal
+
+Implements createSignal from Solid-JS for React-JS
 
 Lightweight package that fixes most useState problems:
 
@@ -15,14 +17,14 @@ But value is a getter function
 ```tsx
 type DefaultValueType<T> = T | (() => T);
 
-type UseGetterStateType<T> = (
+type UseCreateSignalType<T> = (
   defaultValue?: DefaultValueType<T>
 ) => [() => T, (setter: SetStateAction<T>) => T, T];
 ```
 
 ```jsx
 const Component = () => {
-  const [getter, setter] = useGetterState('');
+  const [getter, setter] = useCreateSignal('');
 
   return <input value={getter()} onChange={e => setter(e.target.value)} />;
 };
@@ -32,7 +34,7 @@ Or if you also need value, it's gonna be here
 
 ```jsx
 const Component = () => {
-  const [getter, setter, value] = useGetterState('');
+  const [getter, setter, value] = useCreateSignal('');
 
   return <input value={getter()} onChange={e => setter(e.target.value)} />;
 };
@@ -53,7 +55,7 @@ const Component = () => {
 
 ```jsx
 const Component = () => {
-  const [getter, setter] = useGetterState(() => 1); // or just useGetterState(1). it's the same as useState
+  const [getter, setter] = useCreateSignal(() => 1); // or just useCreateSignal(1). it's the same as useState
 
   const handleIncrement = useCallback(() => {
     const newValue = setter(getter() + 1);
@@ -99,7 +101,7 @@ const InputWithValidation = ({ value, hasError, onValidation }) => {
 };
 
 const MultipleInputs = ({ onErrors }) => {
-  const [getFormErrors, setFormErrors] = useGetterState({});
+  const [getFormErrors, setFormErrors] = useCreateSignal({});
   const formErrors = getFormErrors();
 
   const handleOnErrors = newErrors => {
