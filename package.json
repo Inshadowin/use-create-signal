@@ -15,21 +15,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Inshadowin/use-getter-state.git"
+    "url": "git+https://github.com/Inshadowin/use-create-signal.git"
   },
   "author": "Antony Karachansky",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Inshadowin/use-getter-state/issues"
+    "url": "https://github.com/Inshadowin/use-create-signal/issues"
   },
-  "homepage": "https://github.com/Inshadowin/use-getter-state#readme",
+  "homepage": "https://github.com/Inshadowin/use-create-signal#readme",
   "keywords": [
     "react",
     "react-signal",
     "useState",
     "useSignal",
     "use-create-signal",
-    "use-getter-state",
     "useState-withGetter"
   ],
   "jest": {
