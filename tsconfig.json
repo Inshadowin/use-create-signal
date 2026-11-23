@@ -4,9 +4,12 @@
     "module": "commonjs",
     "target": "es2016",
     "declaration": true,
+    "rootDir": "./src",
     "outDir": "./dist",
     "allowJs": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["jest", "node", "react", "react-dom"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "node_modules/", "node_modules/**/*"]

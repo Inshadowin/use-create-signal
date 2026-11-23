@@ -1,8 +1,10 @@
 name: Publish to NPM
 on:
+  push:
+    branches: ['**']
+  pull_request:
   release:
-    types: [created]
-
+    types: [published]
   workflow_dispatch:
 
 jobs:
@@ -10,23 +12,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '22.15.0'
+          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Install dependencies🔧
-        run: npm install
-
-      - name: Run tests✅
+      - name: Report toolchain
+        run: node --version && npm --version
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
         run: npm run test
-
-      - name: Build🔧
+      - name: Build
         run: npm run build
-
-      - name: Publish package on NPM 📦
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+      - name: Verify npm authentication
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'release' && github.event.action == 'published')
+        run: npm whoami --registry=https://registry.npmjs.org
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package on NPM
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'release' && github.event.action == 'published')
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
